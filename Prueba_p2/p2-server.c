@@ -92,21 +92,21 @@ int main()
     
     setsockopt(serverfd, SOL_SOCKET, SO_REUSEADDR, (const char *)&opt, sizeof(int));
     
-    //  *   Creacion y comporbacion bind
+    //  *   Creacion y comprobacion bind
     r = bind(serverfd, (struct sockaddr*)&server, sizeof(struct sockaddr));
     if(r < 0){
         perror("\n-->Error en bind(): ");
         exit(-1);
     }
 
-    //  *   Creacion y comporbacion listen
+    //  *   Creacion y comprobacion listen
     r = listen(serverfd, BACKLOG);
     if(r < 0){
         perror("\n-->Error en listen(): ");
         exit(-1);
     }
 
-    //  *   Creacion y comporbacion accept
+    //  *   Creacion y comprobacion accept
     clientfd = accept(serverfd, (struct sockaddr *)&client, &tamano);
     if(clientfd < 0){
         perror("\n-->Error en accept(): ");
@@ -119,7 +119,7 @@ int main()
         printf("Error al crear el log");
     }
     
-    //  *   Creacion y comporbacion send
+    //  *   Creacion y comprobacion send
     r = send(clientfd, "Conexion establecida con el servidor", 36, 0);
     if(r < 0){
         perror("\n-->Error en send(): ");
@@ -127,13 +127,13 @@ int main()
     }
 
     
-    //  *   Creacion y comporbacion recive
+    //  *   Creacion y comprobacion recive
     r = recv(clientfd, &buffer, 4, 0);
     buffer[r] = 0;
     sr1.sourceid = (short)atoi(&buffer[0]);
 
-    //  *   Creacion y comporbacion send
-    r = send(clientfd, "Dato recivido", 14, 0);
+    //  *   Creacion y comprobacion send
+    r = send(clientfd, "Dato recibido", 14, 0);
     if(r < 0){
         perror("\n-->Error en send(): ");
         exit(-1);
@@ -143,13 +143,13 @@ int main()
     // printf("%s La cadenas es ", cadena);
     //fwrite(&cadena, sizeof(cadena), 1, log);
 
-    //  *   Creacion y comporbacion recive
+    //  *   Creacion y comprobacion recive
     r = recv(clientfd, &buffer, 4, 0);
     buffer[r] = 0;
     sr1.dstid = (short)atoi(&buffer[0]);
 
-    //  *   Creacion y comporbacion send
-    r = send(clientfd, "Dato recivido", 14, 0);
+    //  *   Creacion y comprobacion send
+    r = send(clientfd, "Dato recbido", 14, 0);
     if(r < 0){
         perror("\n-->Error en send(): ");
         exit(-1);
@@ -160,7 +160,7 @@ int main()
     buffer[r] = 0;
     sr1.hod = (short)atoi(&buffer[0]);
 
-    //  *   Creacion y comporbacion send
+    //  *   Creacion y comprobacion send
     r = send(clientfd, "Dato recivido", 14, 0);
     if(r < 0){
         perror("\n-->Error en send(): ");
@@ -178,12 +178,12 @@ int main()
     }
     fread(&r1, sizeof(r1),1,search);
 
-    //  *   Creacion y comporbacion recive
+    //  *   Creacion y comprobacion recive
     r = recv(clientfd, &bufferAVT, 14, 0);
     bufferAVT[r] = 0;
     if (sizeof(bufferAVT )== 14)
     {
-        //  *   Creacion y comporbacion send
+        //  *   Creacion y comprobacion send
         r = send(clientfd, &r1, sizeof(r1), 0);
         if(r < 0){
             perror("\n-->Error en send(): ");
@@ -193,12 +193,12 @@ int main()
         printf("No esta entrando\n");
     }
     
-    //  *   Creacion y comporbacion recive
+    //  *   Creacion y comprobacion recive
     r = recv(clientfd, &buff, 1, 0);
     bufferAVT[r] = 0;
     if (sizeof(buff )== 1)
     {
-        //  *   Creacion y comporbacion send
+        //  *   Creacion y comprobacion send
         r = send(clientfd, "Desconexion", 12, 0);
         if(r < 0){
             perror("\n-->Error en send(): ");
@@ -211,7 +211,7 @@ int main()
 
     if (inet_ntop(AF_INET, buf, str, INET_ADDRSTRLEN))
     {
-        perror("\nError en inet_ntop: ");
+        perror("\n Error en inet_ntop: ");
     }
     printf("%s\n", str);
 
