@@ -10,8 +10,8 @@ bchaparro@unal.edu.co
 Joe Zafir Méndez León
 jzmendezl@unal.edu.co
 
-Juan Sebastian Bautista Suárez
-jbautistas@unal.edu.co
+Federico Borja Sarmiento
+fborjas@unal.edu.co
 
 # Proceso para ejecución de todo el programa:
 
